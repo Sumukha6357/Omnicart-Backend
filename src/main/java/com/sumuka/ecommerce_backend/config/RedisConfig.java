@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 @Configuration
 public class RedisConfig {
 
-    @Value("${redis.url}")
+    @Value("${spring.redis.url}")
     private String redisUrl;
 
     @Bean
