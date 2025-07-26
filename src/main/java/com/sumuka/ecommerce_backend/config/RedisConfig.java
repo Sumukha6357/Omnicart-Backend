@@ -8,12 +8,6 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurationBuilder;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration.LettuceClientConfigurationBuilder;
-
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import io.lettuce.core.resource.ClientResources;
-import io.lettuce.core.resource.DefaultClientResources;
 import java.time.Duration;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -42,6 +36,7 @@ public LettuceConnectionFactory redisConnectionFactory() throws URISyntaxExcepti
 
     // ✅ ENABLE SSL for Upstash (rediss://)
     LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
+            .commandTimeout(Duration.ofSeconds(5))
             .useSsl()
             .build();
 
