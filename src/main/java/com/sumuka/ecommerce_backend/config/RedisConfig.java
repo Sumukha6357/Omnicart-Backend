@@ -9,6 +9,8 @@ import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfigurationBuilder;
+import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration.LettuceClientConfigurationBuilder;
+
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import io.lettuce.core.resource.ClientResources;
 import io.lettuce.core.resource.DefaultClientResources;
