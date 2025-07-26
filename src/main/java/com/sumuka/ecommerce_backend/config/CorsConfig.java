@@ -11,9 +11,12 @@ public class CorsConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
+            @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://omnicart-frontend-lgzumf3kn-sumukha-k-ys-projects.vercel.app")
+                        .allowedOrigins(
+                            "https://omnicart-frontend-lgzumf3kn-sumukha-k-ys-projects.vercel.app"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
