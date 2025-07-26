@@ -43,7 +43,6 @@ public LettuceConnectionFactory redisConnectionFactory() throws URISyntaxExcepti
     // ✅ ENABLE SSL for Upstash (rediss://)
     LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
             .useSsl()
-            .commandTimeout(Duration.ofSeconds(5))
             .build();
 
     return new LettuceConnectionFactory(config, clientConfig);
