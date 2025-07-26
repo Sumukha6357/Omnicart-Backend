@@ -54,12 +54,6 @@ management:
     web:
       exposure:
         include: "*"
-
-logging:
-  level:
-    org.springframework.boot.autoconfigure.data.redis: DEBUG
-    org.springframework.boot.autoconfigure: DEBUG
-    org.springframework.data.redis: DEBUG
 web:
     cors:
       allowed-origins: "https://omnicart-frontend-lgzumf3kn-sumukha-k-ys-projects.vercel.app"
