@@ -12,6 +12,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
@@ -19,6 +24,21 @@ public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
     private final JwtAuthenticationEntryPoint authEntryPoint;
+
+
+
+@Bean
+public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration config = new CorsConfiguration();
+    config.setAllowedOrigins(List.of("http://localhost:5173", "https://omnicart-frontend-8blndoxcy-sumukha-k-ys-projects.vercel.app")); // Change to your frontend URL
+    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+    config.setAllowCredentials(true); // optional, needed if you're sending cookies or auth headers
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", config);
+    return source;
+}
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
